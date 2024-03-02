@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const ProductCard = ({ product }) => {
   return (
-    <div className="group relative">
+    <Link to={`/products/${product.id}`} className="group relative">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
         <img
           src={product.thumbnail}
@@ -21,7 +23,7 @@ const ProductCard = ({ product }) => {
         </div>
         <p className="text-sm font-medium text-gray-900">${product.price}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

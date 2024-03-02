@@ -1,15 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../components/ProductCard";
+import { fetchProducts } from "../http";
 
-const fetchProducts = async () => {
-  const res = await fetch("https://dummyjson.com/products");
-  return res.json();
-};
 const ProductsPage = () => {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: fetchProducts,
-    staleTime: 1000 * 30,
+    staleTime: 1000 * 60, // 1 minute
   });
 
   if (isPending) {
